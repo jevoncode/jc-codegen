@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://www.jevoncode.com/schema/codegen"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.jevoncode.com/schema/codegen">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <xsd:annotation>
+        <xsd:documentation><![CDATA[
+    代码生成工具codegen的jc-codegen-1.0.xml的校验
+
+	Authors: Jevoncode
+
+	自动化提高生成效率
+		]]></xsd:documentation>
+    </xsd:annotation>
+
+
+
+    <!-- base types -->
+    <xsd:complexType name="identifiedType" abstract="true">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+            模块的名字，参考maven和spring-framework
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="id" type="xsd:ID">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	       模块都有一个唯一的标识
+				]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <!-- Top-level <group> tag -->
+    <xsd:element name="group">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+	            根节点定义，因为XML只能有一个根节点，所以无所谓把子节点嵌套在这里
+			]]></xsd:documentation>
+        </xsd:annotation>
+
+
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="identifiedType">
+                    <xsd:attributeGroup ref="groupAttributes"/>
+                    <xsd:sequence>
+                        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                            <xsd:element ref="artifact"/>
+                        </xsd:choice>
+                    </xsd:sequence>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- group tag的属性 -->
+    <xsd:attributeGroup name="groupAttributes">
+        <xsd:attribute name="author" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	作者
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="date" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	时间
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="company" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	公司名
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="projectDir" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	项目本地绝对路径
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+
+    <!-- artifact tag的属性 -->
+    <xsd:attributeGroup name="artifactAttributes">
+        <xsd:attribute name="description" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	模块描述
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+
+    <!-- table tag的属性 -->
+    <xsd:attributeGroup name="tableAttributes">
+        <xsd:attribute name="description" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的描述
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="dbKey" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的逐渐
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="prefix" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的前缀
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="overwrite" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	是否覆盖代码
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+
+
+
+
+    <xsd:element name="artifact">
+        <xsd:annotation>
+            <xsd:documentation ><![CDATA[
+            将包含的tag和属性分组，再引用尽量
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="identifiedType">
+                    <xsd:group ref="artifactElements"/>
+                    <xsd:attributeGroup ref="artifactAttributes"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <!-- artifact tag里的元素 -->
+    <xsd:group name="artifactElements">
+        <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="table"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:group>
+
+    <!-- table 元素 -->
+    <xsd:element name="table">
+        <xsd:annotation>
+            <xsd:documentation ><![CDATA[
+            表名
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="identifiedType">
+                    <xsd:attributeGroup ref="tableAttributes"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+</xsd:schema>
