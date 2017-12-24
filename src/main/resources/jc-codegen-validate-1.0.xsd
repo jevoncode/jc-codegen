@@ -46,12 +46,10 @@
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="identifiedType">
-                    <xsd:attributeGroup ref="groupAttributes"/>
                     <xsd:sequence>
-                        <xsd:choice minOccurs="0" maxOccurs="unbounded">
-                            <xsd:element ref="artifact"/>
-                        </xsd:choice>
+                        <xsd:element ref="artifact"/>
                     </xsd:sequence>
+                    <xsd:attributeGroup ref="groupAttributes"/>
                 </xsd:extension>
             </xsd:complexContent>
         </xsd:complexType>
@@ -100,38 +98,6 @@
         </xsd:attribute>
     </xsd:attributeGroup>
 
-    <!-- table tag的属性 -->
-    <xsd:attributeGroup name="tableAttributes">
-        <xsd:attribute name="description" type="xsd:string">
-            <xsd:annotation>
-                <xsd:documentation><![CDATA[
-	表的描述
-                    ]]></xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="dbKey" type="xsd:string">
-            <xsd:annotation>
-                <xsd:documentation><![CDATA[
-	表的逐渐
-                    ]]></xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="prefix" type="xsd:string">
-            <xsd:annotation>
-                <xsd:documentation><![CDATA[
-	表的前缀
-                    ]]></xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="overwrite" type="xsd:string">
-            <xsd:annotation>
-                <xsd:documentation><![CDATA[
-	是否覆盖代码
-                    ]]></xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
-    </xsd:attributeGroup>
-
 
 
 
@@ -156,13 +122,31 @@
     <xsd:group name="artifactElements">
         <xsd:sequence>
             <xsd:choice minOccurs="0" maxOccurs="unbounded">
-                <xsd:element ref="table"/>
+                <xsd:element ref="entity"/>
             </xsd:choice>
         </xsd:sequence>
     </xsd:group>
 
-    <!-- table 元素 -->
-    <xsd:element name="table">
+
+
+
+    <!-- entity唯一标示 types -->
+    <xsd:complexType name="tableNameType" abstract="true">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+            entity的名字，对应一个表名
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="tableName" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	       entity都有一个唯一的标识
+				]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    <!-- entity 元素 -->
+    <xsd:element name="entity">
         <xsd:annotation>
             <xsd:documentation ><![CDATA[
             表名
@@ -170,7 +154,7 @@
         </xsd:annotation>
         <xsd:complexType>
             <xsd:complexContent>
-                <xsd:extension base="identifiedType">
+                <xsd:extension base="tableNameType">
                     <xsd:attributeGroup ref="tableAttributes"/>
                 </xsd:extension>
             </xsd:complexContent>
@@ -178,5 +162,39 @@
     </xsd:element>
 
 
+
+
+
+    <!-- table tag的属性 -->
+    <xsd:attributeGroup name="tableAttributes">
+        <xsd:attribute name="description" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的描述
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="primaryKey" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的主键(暂时仅支持单主键)
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="prefix" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	表的前缀
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="overwrite" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	是否覆盖代码
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
 
 </xsd:schema>

@@ -10,14 +10,14 @@ import java.util.List;
  * <p>
  * 此类的字段命名参考class类 @see java.lang.Class
  */
-public class EntityDefinition {
+public class TableDefinition {
     /**
      * 文件名, 也是类的名字
      */
     private String classSimpleName;
 
     /**
-     * 全限定名 com.jc.domain.EntityDefinition
+     * 全限定名 com.jc.domain.TableDefinition
      */
     private String classCanonicalName;
 

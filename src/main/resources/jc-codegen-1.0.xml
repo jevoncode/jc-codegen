@@ -8,7 +8,7 @@
 
 	<!-- 模块名字  -->
 	<artifact id="user" description="用户模块">
-		<table id="t_jc_user" description="用户表" dbKey="id" prefix="t_jc" overwrite="false"></table>
+		<entity tableName="t_jc_user" description="用户表" primaryKey="id" prefix="t_jc" overwrite="false"></entity>
 	</artifact>
 
 </group>
