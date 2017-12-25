@@ -1,15 +1,35 @@
 package com.jc.code.factory.config;
 
+import java.util.List;
+
 public class MapperFile extends CodeFile{
 
 
-    static class MapperField {
+    List<MapperColumn> mapperColumns;
+
+
+    static class MapperColumn{
 
 
         /**
-         * 参考mapper.xml文件要有那些数据
+         * mapper文件resultMap配置
+         * 参考mapper.xml文件
          */
-        private String c;
+        private String property;
+        /**
+         * mapper文件resultMap配置
+         * 参考mapper.xml文件
+         * 如 VARCHAR
+         */
+        private String jdbcType;
+
+        /**
+         * mapper文件resultMap配置
+         * 表结构的字段
+         * 参考mapper.xml文件
+         * 如 user_address
+         */
+        private String column;
 
 
     }
