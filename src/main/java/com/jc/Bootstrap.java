@@ -1,20 +1,9 @@
 package com.jc;
 
-import com.alibaba.fastjson.JSON;
-import com.jc.db.DataSource;
 import com.jc.entity.factory.context.CodegenContext;
-import com.jc.entity.factory.support.EntityDefinitionReader;
-import com.jc.entity.factory.xml.XmlEntityDefinitionReader;
 import com.jc.utils.JsonUtils;
-import javafx.application.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-
-import java.io.IOException;
 
 public class Bootstrap {
 

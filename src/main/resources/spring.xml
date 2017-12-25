@@ -8,7 +8,7 @@
 	
 	<context:component-scan base-package="com.jc" />
 
-	<bean id="dataSourceConfiguration" class="com.jc.configuration.domain.DataSourceConfiguration">
+	<bean id="dataSourceConfiguration" class="com.jc.database.config.DataSourceConfiguration">
 		<property name="url" value="jdbc:mysql://192.168.31.149:3306/mydatabase?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"/>
 		<property name="username" value="jevoncode"/>
 		<property name="password" value="jevoncode"/>

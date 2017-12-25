@@ -1,4 +1,4 @@
 package com.jc.code.factory.config;
 
-public class ServiceFile {
+public class ServiceFile extends CodeFile{
 }

@@ -1,4 +1,4 @@
-package com.jc.db;
+package com.jc.database.support;
 
 public class DataSourceException extends  RuntimeException{
 

@@ -1,4 +1,4 @@
-package com.jc.configuration.domain;
+package com.jc.database.config;
 
 public class DataSourceConfiguration {
 

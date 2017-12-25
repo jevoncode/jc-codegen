@@ -1,6 +1,6 @@
-package com.jc.db;
+package com.jc.database.support;
 
-import com.jc.configuration.domain.DataSourceConfiguration;
+import com.jc.database.config.DataSourceConfiguration;
 import com.jc.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
