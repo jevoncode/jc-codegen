@@ -8,7 +8,7 @@ public class MapperFile extends CodeFile{
     List<MapperColumn> mapperColumns;
 
 
-    static class MapperColumn{
+   public class MapperColumn{
 
 
         /**

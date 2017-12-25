@@ -8,7 +8,7 @@ public class EntityFile extends CodeFile{
 
 
 
-    static class EntityField {
+    public static class EntityField {
 
 
         /**
@@ -32,5 +32,44 @@ public class EntityFile extends CodeFile{
         private String comment;
 
 
+        public String getClassCanonicalName() {
+            return classCanonicalName;
+        }
+
+        public void setClassCanonicalName(String classCanonicalName) {
+            this.classCanonicalName = classCanonicalName;
+        }
+
+        public String getClassSimpleName() {
+            return classSimpleName;
+        }
+
+        public void setClassSimpleName(String classSimpleName) {
+            this.classSimpleName = classSimpleName;
+        }
+
+        public String getFieldName() {
+            return fieldName;
+        }
+
+        public void setFieldName(String fieldName) {
+            this.fieldName = fieldName;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+    }
+
+    public List<EntityField> getEntityFieldList() {
+        return entityFieldList;
+    }
+
+    public void setEntityFieldList(List<EntityField> entityFieldList) {
+        this.entityFieldList = entityFieldList;
     }
 }
