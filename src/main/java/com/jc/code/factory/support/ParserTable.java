@@ -1,11 +1,11 @@
 package com.jc.code.factory.support;
 
-import com.jc.code.factory.config.EntityFileHolder;
+import com.jc.code.factory.config.FileHolder;
 
-import java.sql.Connection;
+import java.util.List;
 
 public interface ParserTable {
 
 
-    EntityFileHolder parse() throws Exception;
+    List<FileHolder> parse();
 }

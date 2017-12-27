@@ -53,12 +53,12 @@ public final class JavaTypeResolver {
         
     }
     
-    public static String getColumnTypeName(int columnType){
+    public static String parseJdbcTypeName(int columnType){
         return typeMap.get(columnType).getJdbcTypeName();
     }
 
-    public static String getColumnClassName(int columnType){
-        return typeMap.get(columnType).getJavaClassName();
+    public static String parseClassCanonicalName(int sqlType){
+        return typeMap.get(sqlType).getJavaClassName();
     }
     
 }

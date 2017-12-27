@@ -27,6 +27,7 @@ public class Bootstrap {
 //        }
         CodegenContext codegenContext = new CodegenContext();
         codegenContext.refresh();
+        codegenContext.gen();
 
         logger.info(JsonUtils.toJSONString(codegenContext.getEntityDefinitionMap()));
 

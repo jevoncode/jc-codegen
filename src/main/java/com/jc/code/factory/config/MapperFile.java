@@ -1,14 +1,19 @@
 package com.jc.code.factory.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MapperFile extends CodeFile{
 
 
-    List<MapperColumn> mapperColumns;
+    List<MapperColumn> mapperColumns = new ArrayList<>();
+
+    public void addColumn(MapperColumn mapperColumn) {
+        mapperColumns.add(mapperColumn);
+    }
 
 
-   public class MapperColumn{
+    public static class MapperColumn{
 
 
         /**
@@ -32,5 +37,28 @@ public class MapperFile extends CodeFile{
         private String column;
 
 
-    }
+       public String getProperty() {
+           return property;
+       }
+
+       public void setProperty(String property) {
+           this.property = property;
+       }
+
+       public String getJdbcType() {
+           return jdbcType;
+       }
+
+       public void setJdbcType(String jdbcType) {
+           this.jdbcType = jdbcType;
+       }
+
+       public String getColumn() {
+           return column;
+       }
+
+       public void setColumn(String column) {
+           this.column = column;
+       }
+   }
 }

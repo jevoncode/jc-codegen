@@ -1,6 +1,5 @@
 package com.jc.code.factory.support;
 
-import com.jc.code.factory.config.EntityFileHolder;
 import com.jc.entity.factory.context.CodegenContext;
 
 import java.sql.Connection;

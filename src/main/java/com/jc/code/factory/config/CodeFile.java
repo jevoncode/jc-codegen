@@ -48,8 +48,59 @@ public class CodeFile {
     private String artifactId;
 
 
+    public String getClassSimpleName() {
+        return classSimpleName;
+    }
 
+    public void setClassSimpleName(String classSimpleName) {
+        this.classSimpleName = classSimpleName;
+    }
 
+    public String getClassCanonicalName() {
+        return classCanonicalName;
+    }
 
+    public void setClassCanonicalName(String classCanonicalName) {
+        this.classCanonicalName = classCanonicalName;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getArtifactId() {
+        return artifactId;
+    }
+
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
 }

@@ -1,11 +1,15 @@
 package com.jc.code.factory.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EntityFile extends CodeFile{
 
-    private List<EntityField> entityFieldList;
+    private List<EntityField> entityFieldList = new ArrayList<>();
 
+    public void addField(EntityField field) {
+        entityFieldList.add(field);
+    }
 
 
     public static class EntityField {
@@ -30,6 +34,17 @@ public class EntityFile extends CodeFile{
          * 字段的注释, 读取数据库表结构字段的注释
          */
         private String comment;
+
+        /**
+         * 数据库字段长度, 如varchar(50)的50
+         */
+        private int columnSize;
+
+        /**
+         * 是否可为空
+         * true代表可为空, 否则不能为空
+         */
+        private boolean nullable;
 
 
         public String getClassCanonicalName() {
@@ -62,6 +77,22 @@ public class EntityFile extends CodeFile{
 
         public void setComment(String comment) {
             this.comment = comment;
+        }
+
+        public int getColumnSize() {
+            return columnSize;
+        }
+
+        public void setColumnSize(int columnSize) {
+            this.columnSize = columnSize;
+        }
+
+        public boolean isNullable() {
+            return nullable;
+        }
+
+        public void setNullable(boolean nullable) {
+            this.nullable = nullable;
         }
     }
 
