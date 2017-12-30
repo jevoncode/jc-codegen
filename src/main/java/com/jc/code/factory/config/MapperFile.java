@@ -61,4 +61,13 @@ public class MapperFile extends CodeFile{
            this.column = column;
        }
    }
+
+
+    public List<MapperColumn> getMapperColumns() {
+        return mapperColumns;
+    }
+
+    public void setMapperColumns(List<MapperColumn> mapperColumns) {
+        this.mapperColumns = mapperColumns;
+    }
 }

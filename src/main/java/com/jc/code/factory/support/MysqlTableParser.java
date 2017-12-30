@@ -99,9 +99,9 @@ public class MysqlTableParser extends AbstractTableParser {
                     EntityFile.EntityField entityField = new EntityFile.EntityField();
                     String classCanonicalName = JavaTypeResolver.parseClassCanonicalName(sqlType);
                     entityField.setClassCanonicalName(classCanonicalName);
-                    entityField.setClassSimpleName(classCanonicalName.substring(classCanonicalName.lastIndexOf(".")));
+                    entityField.setClassSimpleName(classCanonicalName.substring(classCanonicalName.lastIndexOf(".")+1));
                     entityField.setComment(comment);
-                    entityField.setFieldName(CamelCaseUtils.parseSnakeCase(column));
+                    entityField.setFieldName(CamelCaseUtils.parseSnakeCase2LowerCase(column));
                     entityField.setColumnSize(columnSize);
                     entityField.setNullable(nullable);
                     entityFile.addField(entityField);

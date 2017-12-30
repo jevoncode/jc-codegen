@@ -8,6 +8,7 @@ import com.jc.entity.factory.config.EntityDefinition;
 import com.jc.entity.factory.config.EntityDefinitionHolder;
 import com.jc.entity.factory.support.EntityDefinitionReader;
 import com.jc.entity.factory.xml.XmlEntityDefinitionReader;
+import com.jc.utils.JsonUtils;
 import com.jc.utils.SpringContextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +65,7 @@ public class CodegenContext extends DefaultResourceLoader {
         List<FileHolder> fileHolders = parserTable.parse();
 
         for(FileHolder fileHolder:fileHolders){
-
+            logger.debug(JsonUtils.toJSONString(fileHolder));
 
 
         }
