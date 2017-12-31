@@ -60,5 +60,47 @@ public final class JavaTypeResolver {
     public static String parseClassCanonicalName(int sqlType){
         return typeMap.get(sqlType).getJavaClassName();
     }
-    
+
+    public static boolean isNumeriacal(String jdbcType) {
+        if("BIGINT".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("BIT".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("BOOLEAN".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("DATE".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("DOUBLE".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("FLOAT".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("INTEGER".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("DECIMAL".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("NUMERIC".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("SMALLINT".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("TIME".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("TIMESTAMP".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        if("TINYINT".equalsIgnoreCase(jdbcType)){
+            return true;
+        }
+        return false;
+    }
 }

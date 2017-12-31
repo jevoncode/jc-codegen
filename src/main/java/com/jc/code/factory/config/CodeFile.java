@@ -8,6 +8,7 @@ package com.jc.code.factory.config;
  */
 public class CodeFile {
 
+    private EntityField primarykey;
 
     /**
      * 文件名, 也是类的名字, 如: CodeFile
@@ -102,5 +103,13 @@ public class CodeFile {
 
     public void setArtifactId(String artifactId) {
         this.artifactId = artifactId;
+    }
+
+    public EntityField getPrimarykey() {
+        return primarykey;
+    }
+
+    public void setPrimarykey(EntityField primarykey) {
+        this.primarykey = primarykey;
     }
 }

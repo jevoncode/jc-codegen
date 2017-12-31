@@ -13,6 +13,8 @@ repositories {
 
 dependencies {
     compile 'org.springframework:spring-context:4.3.13.RELEASE'
+    compile 'org.springframework:spring-context-support:4.3.13.RELEASE'
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.27-incubating'
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile 'org.slf4j:jcl-over-slf4j:1.7.21'
     compile 'ch.qos.logback:logback-classic:1.1.7'
