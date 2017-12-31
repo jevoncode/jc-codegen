@@ -48,6 +48,10 @@ public class CodeFile {
      */
     private String artifactId;
 
+    /**
+     * 文件根路径(绝对路径)
+     */
+    private String projectDir;
 
     public String getClassSimpleName() {
         return classSimpleName;
@@ -111,5 +115,13 @@ public class CodeFile {
 
     public void setPrimarykey(EntityField primarykey) {
         this.primarykey = primarykey;
+    }
+
+    public String getProjectDir() {
+        return projectDir;
+    }
+
+    public void setProjectDir(String projectDir) {
+        this.projectDir = projectDir;
     }
 }

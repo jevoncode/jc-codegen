@@ -40,10 +40,6 @@ public class Bootstrap {
         codegenContext.refresh();
         codegenContext.gen();
 
-        logger.info(JsonUtils.toJSONString(codegenContext.getEntityDefinitionMap()));
-
-
-
         logger.info("结束");
     }
 }

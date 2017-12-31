@@ -55,6 +55,7 @@ public class MysqlTableParser extends AbstractTableParser {
 
                 //entity文件
                 EntityFile entityFile = new EntityFile();
+                entityFile.setProjectDir(groupDefinition.getProjectDir());
                 entityFile.setClassSimpleName(CamelCaseUtils.parseSnakeCase(tableName.replaceFirst(tablePrefix, "")));
                 String classCanonicalName4Entity = groupDefinition.getId() + DOT + artifactDefinition.getId() + DOT + entityFile.getClassSimpleName();
                 entityFile.setClassCanonicalName(classCanonicalName4Entity);

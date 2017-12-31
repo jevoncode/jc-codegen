@@ -30,7 +30,7 @@ public interface ${entityFile.classSimpleName}Mapper{
 	${entityFile.classSimpleName} getBy${entityFile.primarykey.fieldName?cap_first}(${entityFile.primarykey.classSimpleName} ${entityFile.primarykey.fieldName});
 
 	//分页使用的list
-	List<${entityFile.classSimpleName}> queryList(${entityFile.classSimpleName} page);
+	List<${entityFile.classSimpleName}> queryList(Page page);
 
 	int count(Map<String,Object> params);
 

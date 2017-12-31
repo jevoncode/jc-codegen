@@ -15,7 +15,7 @@
      
     <sql id="BASE_COLUMN_LIST">
         <#list mapperFile.mapperColumns as column>
-        ${column.column}<#sep>,
+        ${column.column}<#sep>,</#sep>
         </#list>
     </sql>
 
@@ -24,14 +24,14 @@
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <#list mapperFile.mapperColumns as column>
             <if test="${column.property} != null" >
-                ${column.column}<#sep>,
+                ${column.column}<#sep>,</#sep>
             </if>
             </#list>
         </trim>
         <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
             <#list mapperFile.mapperColumns as column>
             <if test="${column.property} != null" >
-                ${_left}${column.property}${_right}<#sep>,
+                ${_left}${column.property}${_right}<#sep>,</#sep>
             </if>
             </#list>
         </trim>
@@ -40,13 +40,13 @@
     <insert id="insertBatch" parameterType="java.util.List" >
         INSERT INTO ${mapperFile.tableName} (
             <#list mapperFile.mapperColumns as column>
-              ${column.column}<#sep>,
+              ${column.column}<#sep>,</#sep>
             </#list>
         )VALUES
         <foreach collection="list" item="item" index="index" separator="," >  
             (
                 <#list mapperFile.mapperColumns as column>
-                ${_left}item.${column.property}${_right}<#sep>,
+                ${_left}item.${column.property}${_right}<#sep>,</#sep>
                 </#list>
             )
         </foreach>
@@ -66,7 +66,7 @@
         UPDATE ${mapperFile.tableName} SET
             <#list mapperFile.mapperColumns as column>
             <#if primaryColumn != '${column.column}' >
-                ${column.column}=${_left}${column.property}${_right}<#sep>,
+                ${column.column}=${_left}${column.property}${_right}<#sep>,</#sep>
             </#if>
             </#list>
         WHERE
@@ -82,7 +82,7 @@
                 <#list mapperFile.mapperColumns as column>
                 <#if primaryColumn != '${column.column}' >
                 <if test="${column.property} != null" >
-                    ${column.column}=${_left}${column.property}${_right}<#sep>,
+                    ${column.column}=${_left}${column.property}${_right}<#sep>,</#sep>
                 </if>
                 </#if>
                 </#list>

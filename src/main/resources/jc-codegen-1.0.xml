@@ -4,7 +4,7 @@
 <group xmlns="http://www.jevoncode.com/schema/codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.jevoncode.com/schema/codegen http://www.jevoncode.com/schema/codegen/jc-codegen-1.0.xsd"
 		id="com.jc" author="Jevoncode" date="2017-12-16"
-		 company="FACEBOOK" projectDir="/home/cherry/IdeaProjects/projectName">
+		 company="FACEBOOK" projectDir="/home/cherry/IdeaProjects/test">
 
 	<!-- 模块名字  -->
 	<artifact id="user" description="用户模块">
