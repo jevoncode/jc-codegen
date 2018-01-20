@@ -2,6 +2,8 @@ group 'com.jc'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+//安装到local repository的命令: gradle install
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
