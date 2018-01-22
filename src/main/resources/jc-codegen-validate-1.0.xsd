@@ -103,6 +103,13 @@
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="prefix" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	模块名的前缀，一般是多模块时使用，如springframework项目下的多模块，spring-core，spring-context，其中spring就是前缀
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:attributeGroup>
 
 

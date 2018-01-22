@@ -107,8 +107,10 @@ public class EntityDefinitionParserDelegate {
         ArtifactDefinition artifactDefinition = new ArtifactDefinition();
         String idStr = ele.getAttribute(ID_ATTRIBUTE);
         String desc = ele.getAttribute(DESC_DIR_ATTRIBUTE);
+        String prefix = ele.getAttribute(PREFIX_ATTRIBUTE);
         artifactDefinition.setId(idStr);
         artifactDefinition.setDescription(desc);
+        artifactDefinition.setPrefix(prefix);
         List<String> tableNames = new ArrayList<>();
         List<EntityDefinition> entityDefinitions = new ArrayList<>();
         EntityDefinitionHolder holder = new EntityDefinitionHolder(artifactDefinition,tableNames,entityDefinitions);

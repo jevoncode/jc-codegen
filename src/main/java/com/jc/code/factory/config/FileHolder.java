@@ -4,17 +4,19 @@ public class FileHolder {
 
 
     private final boolean multiModule;
+    private final String artifactPrefix;
 
     private final EntityFile entityFile;
     private final MapperFile mapperFile;
     private final ServiceFile serviceFile;
 
 
-    public FileHolder(EntityFile entityFile, MapperFile mapperFile, ServiceFile serviceFile, boolean multiModule) {
+    public FileHolder(EntityFile entityFile, MapperFile mapperFile, ServiceFile serviceFile, boolean multiModule,String artifactPrefix) {
         this.entityFile = entityFile;
         this.mapperFile = mapperFile;
         this.serviceFile = serviceFile;
         this.multiModule = multiModule;
+        this.artifactPrefix = artifactPrefix;
     }
 
     public EntityFile getEntityFile() {
@@ -32,5 +34,9 @@ public class FileHolder {
 
     public boolean isMultiModule() {
         return multiModule;
+    }
+
+    public String getArtifactPrefix() {
+        return artifactPrefix;
     }
 }

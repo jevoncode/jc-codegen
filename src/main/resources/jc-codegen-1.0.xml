@@ -7,7 +7,7 @@
 		 company="FACEBOOK" projectDir="/home/cherry/IdeaProjects/test" multiModule="true">
 
 	<!-- 模块名字  -->
-	<artifact id="user" description="用户模块">
+	<artifact id="user" description="用户模块" prefix="jc">
 		<entity tableName="t_jc_user" description="用户表" primaryKey="id" prefix="t_jc" overwrite="false"></entity>
 		<entity tableName="t_jc_double_key" description="测试重复主键表" primaryKey="id" prefix="t_jc" overwrite="false"></entity>
 	</artifact>

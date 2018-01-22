@@ -18,6 +18,13 @@ public class ArtifactDefinition {
      */
     private String description;
 
+    /**
+     * 模块名前缀
+     * <p>
+     * 一般是多模块时使用，如springframework项目下的多模块，spring-core，spring-context，其中spring就是前缀
+     */
+    private String prefix;
+
 
     public String getId() {
         return id;
@@ -33,5 +40,13 @@ public class ArtifactDefinition {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 }

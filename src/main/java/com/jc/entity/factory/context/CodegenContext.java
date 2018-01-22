@@ -16,6 +16,7 @@ import com.jc.utils.JsonUtils;
 import com.jc.utils.SpringContextUtils;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -28,6 +29,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CodegenContext extends DefaultResourceLoader {
+
+    private static final  String NAME_DELIM = "-";
+    private static final  String PATH_SEPARATOR = "/";
+
 
     private Logger logger = LoggerFactory.getLogger(CodegenContext.class);
 
@@ -88,7 +93,7 @@ public class CodegenContext extends DefaultResourceLoader {
             String projectDir = fileHolder.getEntityFile().getProjectDir();
             String groupId = fileHolder.getEntityFile().getGroupId();
             String artifactId = fileHolder.getEntityFile().getArtifactId();
-            String path = constructPath(projectDir,groupId,artifactId,fileHolder.isMultiModule());
+            String path = constructPath(projectDir,groupId,artifactId,fileHolder.isMultiModule(),fileHolder.getArtifactPrefix());
             String entityJava = null;
             String exceptionJava = null;
             String mapperJava = null;
@@ -155,29 +160,49 @@ public class CodegenContext extends DefaultResourceLoader {
 
     }
 
+
     @Deprecated
     private String constructPath(String projectDir, String groupId, String artifactId) {
         StringBuilder path = new StringBuilder();
-        if(projectDir.lastIndexOf("/")==projectDir.length()-1){
-            path.append(projectDir).append("/src/main/java/").append(groupId.replaceAll("\\.","/")).append("/").append(artifactId);
+        if(projectDir.lastIndexOf(PATH_SEPARATOR)==projectDir.length()-1){
+            path.append(projectDir).append("/src/main/java/").append(groupId.replaceAll("\\.",PATH_SEPARATOR)).append(PATH_SEPARATOR).append(artifactId);
         }else{
-            path.append(projectDir).append("/").append("/src/main/java/").append(groupId.replaceAll("\\.","/")).append("/").append(artifactId);
+            path.append(projectDir).append(PATH_SEPARATOR).append("/src/main/java/").append(groupId.replaceAll("\\.",PATH_SEPARATOR)).append(PATH_SEPARATOR).append(artifactId);
         }
-        return path.append("/").toString();
+        return path.append(PATH_SEPARATOR).toString();
     }
 
+    @Deprecated
     private String constructPath(String projectDir, String groupId, String artifactId,boolean isMultiModule) {
         StringBuilder path = new StringBuilder();
         path.append(projectDir);
-        if(projectDir.lastIndexOf("/")!=projectDir.length()-1)
-            path.append("/");
+        if(projectDir.lastIndexOf(PATH_SEPARATOR)!=projectDir.length()-1)
+            path.append(PATH_SEPARATOR);
 
         if(isMultiModule)
-            path.append(artifactId).append("/");
-        path.append("src/main/java/").append(groupId.replaceAll("\\.","/")).append("/").append(artifactId);
+            path.append(artifactId).append(PATH_SEPARATOR);
+        path.append("src/main/java/").append(groupId.replaceAll("\\.",PATH_SEPARATOR)).append(PATH_SEPARATOR).append(artifactId);
 
-        return path.append("/").toString();
+        return path.append(PATH_SEPARATOR).toString();
     }
+
+    private String constructPath(String projectDir, String groupId, String artifactId, boolean isMultiModule, String artifactPrefix) {
+        StringBuilder path = new StringBuilder();
+        path.append(projectDir);
+        if(projectDir.lastIndexOf(PATH_SEPARATOR)!=projectDir.length()-1)
+            path.append(PATH_SEPARATOR);
+
+        if(isMultiModule) {
+            if(StringUtils.isNotBlank(artifactPrefix)) {
+                path.append(artifactPrefix).append(NAME_DELIM);
+            }
+            path.append(artifactId).append(PATH_SEPARATOR);
+        }
+        path.append("src/main/java/").append(groupId.replaceAll("\\.",PATH_SEPARATOR)).append(PATH_SEPARATOR).append(artifactId);
+
+        return path.append(PATH_SEPARATOR).toString();
+    }
+
 
     private ParserTable createParserTable() {
 

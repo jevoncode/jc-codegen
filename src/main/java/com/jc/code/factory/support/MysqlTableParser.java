@@ -45,6 +45,7 @@ public class MysqlTableParser extends AbstractTableParser {
                 ArtifactDefinition artifactDefinition = entityDefinition.getArtifactDefinition();
                 GroupDefinition groupDefinition = entityDefinition.getGroupDefinition();
                 boolean multiModule = groupDefinition.isMultiModule();
+                String artifactPrefix = artifactDefinition.getPrefix();
                 String tablePrefix = entityDefinition.getPrefix();
 
 
@@ -125,7 +126,7 @@ public class MysqlTableParser extends AbstractTableParser {
                 mapperFile.setPrimarykey(entityFile.getPrimarykey());
                 serviceFile.setPrimarykey(entityFile.getPrimarykey());
 
-                FileHolder fileHolder = new FileHolder(entityFile, mapperFile, serviceFile,multiModule);
+                FileHolder fileHolder = new FileHolder(entityFile, mapperFile, serviceFile,multiModule,artifactPrefix);
                 fileHolders.add(fileHolder);
 
             }
