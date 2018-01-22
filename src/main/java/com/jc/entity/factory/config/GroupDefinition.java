@@ -44,7 +44,12 @@ public class GroupDefinition {
     /**
      * 分页类的class
      */
-    private String defualtPageClass;
+    private String defaultPageClass;
+
+    /**
+     * 文件名前缀（为了兼容老项目，新生成的类名（文件名）可能需要不同的前缀）
+     */
+    private String fileNamePrefix;
 
     public boolean isMultiModule() {
         return multiModule;
@@ -94,11 +99,19 @@ public class GroupDefinition {
         this.projectDir = projectDir;
     }
 
-    public String getDefualtPageClass() {
-        return defualtPageClass;
+    public String getDefaultPageClass() {
+        return defaultPageClass;
     }
 
-    public void setDefualtPageClass(String defualtPageClass) {
-        this.defualtPageClass = defualtPageClass;
+    public void setDefaultPageClass(String defaultPageClass) {
+        this.defaultPageClass = defaultPageClass;
+    }
+
+    public String getFileNamePrefix() {
+        return fileNamePrefix;
+    }
+
+    public void setFileNamePrefix(String fileNamePrefix) {
+        this.fileNamePrefix = fileNamePrefix;
     }
 }

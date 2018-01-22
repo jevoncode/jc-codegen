@@ -4,9 +4,9 @@ import java.util.Map;
 import java.util.List;
 
 import ${serviceFile.groupId}.${serviceFile.artifactId}.entity.${serviceFile.classSimpleName};
-import ${defualtPageClass};  //分页dto
+import ${defaultPageClass};  //分页dto
 
-<#assign pageIndex=defualtPageClass?last_index_of(".")+1/>
+<#assign pageIndex=defaultPageClass?last_index_of(".")+1/>
 
 /**
 <#if entityFile.description??>
@@ -27,7 +27,7 @@ public interface ${serviceFile.classSimpleName}Service {
 
     ${serviceFile.classSimpleName} getBy${serviceFile.primarykey.fieldName?cap_first}(${serviceFile.primarykey.classSimpleName} ${serviceFile.primarykey.fieldName});
 
-    ${defualtPageClass?substring(pageIndex)?cap_first} queryList(${defualtPageClass?substring(pageIndex)?cap_first} page);
+    ${defaultPageClass?substring(pageIndex)?cap_first} queryList(${defaultPageClass?substring(pageIndex)?cap_first} page);
     
     int count(Map<String,Object> params);
 

@@ -41,7 +41,9 @@ public class EntityDefinitionParserDelegate {
 
     public static final String MULTI_MODULE_ATTRIBUTE = "multiModule";
 
-    public static final String DEFAULT_PAGE_CLASS = "defualtPageClass";
+    public static final String DEFAULT_PAGE_CLASS = "defaultPageClass";
+
+    public static final String FILE_NAME_PREFIX = "fileNamePrefix";
 
     public static final String DESC_DIR_ATTRIBUTE = "description";
 
@@ -76,6 +78,7 @@ public class EntityDefinitionParserDelegate {
         String companyStr = root.getAttribute(COMPANY_ATTRIBUTE);
         String projectDirStr = root.getAttribute(PROJECT_DIR_ATTRIBUTE);
         String defaultPageClass = root.getAttribute(DEFAULT_PAGE_CLASS);
+        String fileNamePrefix = root.getAttribute(FILE_NAME_PREFIX);
         if(StringUtils.isEmpty(defaultPageClass)){
             defaultPageClass = DEFAULT_PAGE_BEAN_CLASS;
         }
@@ -97,7 +100,8 @@ public class EntityDefinitionParserDelegate {
         groupDefinition.setProjectDir(projectDirStr);
         groupDefinition.setMultiModule(multiModule);
         groupDefinition.setMultiModule(multiModule);
-        groupDefinition.setDefualtPageClass(defaultPageClass);
+        groupDefinition.setDefaultPageClass(defaultPageClass);
+        groupDefinition.setFileNamePrefix(fileNamePrefix);
     }
 
 

@@ -1,20 +1,10 @@
 package com.jc;
 
 import com.jc.entity.factory.context.CodegenContext;
-import com.jc.utils.JsonUtils;
-import freemarker.cache.TemplateCache;
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Bootstrap {
 

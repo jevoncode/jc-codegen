@@ -92,10 +92,17 @@
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="defualtPageClass" type="xsd:string">
+        <xsd:attribute name="defaultPageClass" type="xsd:string">
             <xsd:annotation>
                 <xsd:documentation><![CDATA[
 	分页bean的class，可自定义分页类
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fileNamePrefix" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+     文件名前缀（为了兼容老项目，新生成的类名（文件名）可能需要不同的前缀）
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

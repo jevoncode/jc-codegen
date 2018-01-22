@@ -13,9 +13,9 @@ import ${serviceFile.groupId}.${serviceFile.artifactId}.entity.${serviceFile.cla
 import ${serviceFile.groupId}.${serviceFile.artifactId}.service.${serviceFile.classSimpleName}Service;
 
 
-import ${defualtPageClass};  //分页dto
+import ${defaultPageClass};  //分页dto
 
-<#assign pageIndex=defualtPageClass?last_index_of(".")+1/>
+<#assign pageIndex=defaultPageClass?last_index_of(".")+1/>
 
 
 /**
@@ -67,7 +67,7 @@ public class ${serviceFile.classSimpleName}ServiceImpl implements ${serviceFile.
     }
 
     @Override
-    public ${defualtPageClass?substring(pageIndex)?cap_first} queryList(${defualtPageClass?substring(pageIndex)?cap_first} page) {
+    public ${defaultPageClass?substring(pageIndex)?cap_first} queryList(${defaultPageClass?substring(pageIndex)?cap_first} page) {
         List<${serviceFile.classSimpleName}> list = this.${serviceFile.classSimpleName?uncap_first}Mapper.queryList(page);
         page.setData(list);
         return page;

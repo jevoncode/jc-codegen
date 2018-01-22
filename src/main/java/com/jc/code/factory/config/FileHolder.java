@@ -19,20 +19,33 @@ public class FileHolder {
     /**
      * 分页类的class
      */
-    private final String defualtPageClass;
+    private final String defaultPageClass;
 
     private final EntityFile entityFile;
     private final MapperFile mapperFile;
     private final ServiceFile serviceFile;
 
 
-    public FileHolder(EntityFile entityFile, MapperFile mapperFile, ServiceFile serviceFile, boolean multiModule,String artifactPrefix,String defualtPageClass) {
+    public FileHolder(EntityFile entityFile, MapperFile mapperFile, ServiceFile serviceFile, boolean multiModule,String artifactPrefix,String defaultPageClass) {
         this.entityFile = entityFile;
         this.mapperFile = mapperFile;
         this.serviceFile = serviceFile;
         this.multiModule = multiModule;
         this.artifactPrefix = artifactPrefix;
-        this.defualtPageClass = defualtPageClass;
+        this.defaultPageClass = defaultPageClass;
+    }
+
+
+    public FileHolder(EntityFile entityFile, MapperFile mapperFile, ServiceFile serviceFile, boolean multiModule, String artifactPrefix, String defaultPageClass, String fileNamePrefix) {
+        this.entityFile = entityFile;
+        this.mapperFile = mapperFile;
+        this.serviceFile = serviceFile;
+        this.multiModule = multiModule;
+        this.artifactPrefix = artifactPrefix;
+        this.defaultPageClass = defaultPageClass;
+        entityFile.setFileNamePrefix(fileNamePrefix);
+        mapperFile.setFileNamePrefix(fileNamePrefix);
+        serviceFile.setFileNamePrefix(fileNamePrefix);
     }
 
     public EntityFile getEntityFile() {
@@ -56,7 +69,7 @@ public class FileHolder {
         return artifactPrefix;
     }
 
-    public String getDefualtPageClass() {
-        return defualtPageClass;
+    public String getDefaultPageClass() {
+        return defaultPageClass;
     }
 }

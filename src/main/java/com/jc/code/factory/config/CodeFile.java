@@ -53,7 +53,16 @@ public class CodeFile {
      */
     private String projectDir;
 
+
+    /**
+     * 文件名前缀（为了兼容老项目，新生成的类名（文件名）可能需要不同的前缀）
+     */
+    private String fileNamePrefix;
+
     public String getClassSimpleName() {
+        if(getFileNamePrefix()!=null && !"".equals(getFileNamePrefix().trim()) && classSimpleName!=null){
+            return getFileNamePrefix()+classSimpleName;
+        }
         return classSimpleName;
     }
 
@@ -62,6 +71,9 @@ public class CodeFile {
     }
 
     public String getClassCanonicalName() {
+        if(getFileNamePrefix()!=null && !"".equals(getFileNamePrefix().trim()) && classCanonicalName!=null){
+            return classCanonicalName.substring(0,classCanonicalName.lastIndexOf("."))+getClassSimpleName();
+        }
         return classCanonicalName;
     }
 
@@ -123,5 +135,13 @@ public class CodeFile {
 
     public void setProjectDir(String projectDir) {
         this.projectDir = projectDir;
+    }
+
+    public String getFileNamePrefix() {
+        return fileNamePrefix;
+    }
+
+    public void setFileNamePrefix(String fileNamePrefix) {
+        this.fileNamePrefix = fileNamePrefix;
     }
 }
