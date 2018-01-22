@@ -92,6 +92,13 @@
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="defualtPageClass" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	分页bean的class，可自定义分页类
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:attributeGroup>
 
     <!-- artifact tag的属性 -->

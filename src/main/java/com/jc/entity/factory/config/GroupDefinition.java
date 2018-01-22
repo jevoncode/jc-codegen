@@ -41,6 +41,11 @@ public class GroupDefinition {
      */
     private boolean multiModule;
 
+    /**
+     * 分页类的class
+     */
+    private String defualtPageClass;
+
     public boolean isMultiModule() {
         return multiModule;
     }
@@ -87,5 +92,13 @@ public class GroupDefinition {
 
     public void setProjectDir(String projectDir) {
         this.projectDir = projectDir;
+    }
+
+    public String getDefualtPageClass() {
+        return defualtPageClass;
+    }
+
+    public void setDefualtPageClass(String defualtPageClass) {
+        this.defualtPageClass = defualtPageClass;
     }
 }

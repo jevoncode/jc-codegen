@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import ${entityFile.groupId}.${entityFile.artifactId}.entity.${entityFile.classSimpleName};
-import com.jc.codegen.dto.Page;  //分页dto
+import ${defualtPageClass};  //分页dto
+
+<#assign pageIndex=defualtPageClass?last_index_of(".")+1/>
 
 /**
 <#if entityFile.description??>
@@ -30,7 +32,7 @@ public interface ${entityFile.classSimpleName}Mapper{
 	${entityFile.classSimpleName} getBy${entityFile.primarykey.fieldName?cap_first}(${entityFile.primarykey.classSimpleName} ${entityFile.primarykey.fieldName});
 
 	//分页使用的list
-	List<${entityFile.classSimpleName}> queryList(Page page);
+	List<${entityFile.classSimpleName}> queryList(${defualtPageClass?substring(pageIndex)?cap_first} page);
 
 	int count(Map<String,Object> params);
 

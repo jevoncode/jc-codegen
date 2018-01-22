@@ -13,7 +13,10 @@ import ${serviceFile.groupId}.${serviceFile.artifactId}.entity.${serviceFile.cla
 import ${serviceFile.groupId}.${serviceFile.artifactId}.service.${serviceFile.classSimpleName}Service;
 
 
-import com.jc.codegen.dto.Page;  //分页dto
+import ${defualtPageClass};  //分页dto
+
+<#assign pageIndex=defualtPageClass?last_index_of(".")+1/>
+
 
 /**
 <#if entityFile.description??>
@@ -64,7 +67,7 @@ public class ${serviceFile.classSimpleName}ServiceImpl implements ${serviceFile.
     }
 
     @Override
-    public Page queryList(Page page) {
+    public ${defualtPageClass?substring(pageIndex)?cap_first} queryList(${defualtPageClass?substring(pageIndex)?cap_first} page) {
         List<${serviceFile.classSimpleName}> list = this.${serviceFile.classSimpleName?uncap_first}Mapper.queryList(page);
         page.setData(list);
         return page;
