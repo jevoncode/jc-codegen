@@ -99,7 +99,6 @@ public class EntityDefinitionParserDelegate {
         groupDefinition.setCompany(companyStr);
         groupDefinition.setProjectDir(projectDirStr);
         groupDefinition.setMultiModule(multiModule);
-        groupDefinition.setMultiModule(multiModule);
         groupDefinition.setDefaultPageClass(defaultPageClass);
         groupDefinition.setFileNamePrefix(fileNamePrefix);
     }
