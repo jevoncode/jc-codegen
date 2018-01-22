@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * @author Jevoncode
- * @date 2017-12-16
+ * @since 2017-12-16
  * <p>
  * Java中entity的定义, 对应着数据库的一张表
  * <p>

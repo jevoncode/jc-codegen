@@ -85,6 +85,13 @@
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="multiModule" type="xsd:boolean">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	项目是否是多模块项目 true则是, false则不是, 当“true”的时候, 会创建模块目录
+                    ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:attributeGroup>
 
     <!-- artifact tag的属性 -->

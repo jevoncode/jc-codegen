@@ -1,7 +1,5 @@
 package com.jc.entity.factory.xml;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -11,7 +9,6 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -35,15 +32,15 @@ public class PluggableSchemaResolver implements EntityResolver {
 
 
     /**
-     * 保存schema的映射（URL->本地schema位置）
+     * 保存schema的映射（URL-&gt;本地schema位置）
      */
     private volatile Map<String, String> schemaMappings;
 
 
     /**
-     * 加载schema的映射（URL->本地schema位置）, 使用默认映射文件位置"META-INF/jc-codegen.schemas"
+     * 加载schema的映射（URL-&gt;本地schema位置）, 使用默认映射文件位置"META-INF/jc-codegen.schemas"
      *
-     * @param classLoader
+     * @param classLoader 指定加载器
      */
     public PluggableSchemaResolver(ClassLoader classLoader) {
         this.classLoader = classLoader;
@@ -51,9 +48,9 @@ public class PluggableSchemaResolver implements EntityResolver {
     }
 
     /**
-     * 加载schema的映射（URL->本地schema位置）, 指定映射文件位置
+     * 加载schema的映射（URL-&gt;本地schema位置）, 指定映射文件位置
      *
-     * @param classLoader
+     * @param classLoader 指定加载器
      * @param schemaMappingsLocation 定义schema映射的文件位置（不能为空）
      */
     public PluggableSchemaResolver(ClassLoader classLoader, String schemaMappingsLocation) {
@@ -88,7 +85,7 @@ public class PluggableSchemaResolver implements EntityResolver {
     /**
      * 懒加载制定的schema映射
      *
-     * @return
+     * @return 返回schema的映射map
      */
     private Map<String, String> getSchemaMappings() {
         if (this.schemaMappings == null) {

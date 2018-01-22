@@ -88,7 +88,7 @@ public class CodegenContext extends DefaultResourceLoader {
             String projectDir = fileHolder.getEntityFile().getProjectDir();
             String groupId = fileHolder.getEntityFile().getGroupId();
             String artifactId = fileHolder.getEntityFile().getArtifactId();
-            String path = constructPath(projectDir,groupId,artifactId);
+            String path = constructPath(projectDir,groupId,artifactId,fileHolder.isMultiModule());
             String entityJava = null;
             String exceptionJava = null;
             String mapperJava = null;
@@ -155,6 +155,7 @@ public class CodegenContext extends DefaultResourceLoader {
 
     }
 
+    @Deprecated
     private String constructPath(String projectDir, String groupId, String artifactId) {
         StringBuilder path = new StringBuilder();
         if(projectDir.lastIndexOf("/")==projectDir.length()-1){
@@ -162,6 +163,19 @@ public class CodegenContext extends DefaultResourceLoader {
         }else{
             path.append(projectDir).append("/").append("/src/main/java/").append(groupId.replaceAll("\\.","/")).append("/").append(artifactId);
         }
+        return path.append("/").toString();
+    }
+
+    private String constructPath(String projectDir, String groupId, String artifactId,boolean isMultiModule) {
+        StringBuilder path = new StringBuilder();
+        path.append(projectDir);
+        if(projectDir.lastIndexOf("/")!=projectDir.length()-1)
+            path.append("/");
+
+        if(isMultiModule)
+            path.append(artifactId).append("/");
+        path.append("src/main/java/").append(groupId.replaceAll("\\.","/")).append("/").append(artifactId);
+
         return path.append("/").toString();
     }
 

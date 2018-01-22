@@ -13,7 +13,7 @@ import ${entity.classCanonicalName};
  * @description ${entityFile.description}
 </#if>
  * @author ${entityFile.author}
- * @date ${entityFile.date}
+ * @since ${entityFile.date}
  */
 public class ${entityFile.classSimpleName} {
     

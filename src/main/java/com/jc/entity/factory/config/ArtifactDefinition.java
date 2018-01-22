@@ -2,7 +2,7 @@ package com.jc.entity.factory.config;
 
 /**
  * @author Jevoncode
- * @date 2017-12-16
+ * @since 2017-12-16
  * <p>
  * 对应配置jc-codegen-{verison}.xml的artifact标签
  */

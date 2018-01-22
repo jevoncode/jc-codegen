@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Jevoncode
- * @date 2017-12-16
+ * @since 2017-12-16
  * <p>
  * 对应配置jc-codegen-{verison}.xml的group标签
  */

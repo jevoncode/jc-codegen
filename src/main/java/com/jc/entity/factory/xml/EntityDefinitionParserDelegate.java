@@ -40,6 +40,8 @@ public class EntityDefinitionParserDelegate {
 
     public static final String PROJECT_DIR_ATTRIBUTE = "projectDir";
 
+    public static final String MULTI_MODULE_ATTRIBUTE = "multiModule";
+
     public static final String DESC_DIR_ATTRIBUTE = "description";
 
     public static final String TABLE_NAME_ATTRIBUTE = "tableName";
@@ -49,6 +51,7 @@ public class EntityDefinitionParserDelegate {
     public static final String PREFIX_ATTRIBUTE = "prefix";
 
     public static final String OVERWRITE_ATTRIBUTE = "overwrite";
+
 
 
     private final XmlReaderContext readerContext;
@@ -70,6 +73,7 @@ public class EntityDefinitionParserDelegate {
         String dateStr = root.getAttribute(DATE_ATTRIBUTE);
         String companyStr = root.getAttribute(COMPANY_ATTRIBUTE);
         String projectDirStr = root.getAttribute(PROJECT_DIR_ATTRIBUTE);
+        boolean multiModule = root.getAttribute(MULTI_MODULE_ATTRIBUTE)==null?false:TRUE_VALUE.equalsIgnoreCase(root.getAttribute(MULTI_MODULE_ATTRIBUTE));
         groupDefinition.setId(idStr);
         groupDefinition.setAuthor(authorStr);
         try {
@@ -80,6 +84,7 @@ public class EntityDefinitionParserDelegate {
         }
         groupDefinition.setCompany(companyStr);
         groupDefinition.setProjectDir(projectDirStr);
+        groupDefinition.setMultiModule(multiModule);
     }
 
 

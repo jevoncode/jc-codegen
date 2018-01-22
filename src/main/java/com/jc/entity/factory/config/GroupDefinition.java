@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Jevoncode
- * @date 2017-12-16
+ * @since 2017-12-16
  * <p>
  * 对应配置jc-codegen-{verison}.xml的group标签
  */
@@ -35,6 +35,19 @@ public class GroupDefinition {
      * 项目路径
      */
     private String projectDir;
+
+    /**
+     * 是否是多模块项目
+     */
+    private boolean multiModule;
+
+    public boolean isMultiModule() {
+        return multiModule;
+    }
+
+    public void setMultiModule(boolean multiModule) {
+        this.multiModule = multiModule;
+    }
 
     public String getId() {
         return id;

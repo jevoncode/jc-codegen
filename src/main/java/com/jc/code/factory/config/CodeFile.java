@@ -4,7 +4,7 @@ package com.jc.code.factory.config;
 /**
  * 此类的字段命名参考class类 {@link java.lang.Class}
  * @author Jevoncode
- * @date 2017-12-25
+ * @since 2017-12-25
  */
 public class CodeFile {
 

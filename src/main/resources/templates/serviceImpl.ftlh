@@ -20,7 +20,7 @@ import com.jc.codegen.dto.Page;  //分页dto
 * @description ${serviceFile.description}
 </#if>
 * @author ${serviceFile.author}
-* @date ${serviceFile.date}
+* @since ${serviceFile.date}
 */
 @Service
 public class ${serviceFile.classSimpleName}ServiceImpl implements ${serviceFile.classSimpleName}Service{

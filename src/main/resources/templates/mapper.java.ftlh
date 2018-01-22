@@ -13,7 +13,7 @@ import com.jc.codegen.dto.Page;  //分页dto
 * @description ${entityFile.description}
 </#if>
 * @author ${entityFile.author}
-* @date ${entityFile.date}
+* @since ${entityFile.date}
 */
 @Repository
 public interface ${entityFile.classSimpleName}Mapper{

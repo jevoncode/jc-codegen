@@ -96,8 +96,10 @@ public class XmlEntityDefinitionReader implements EntityDefinitionReader {
     private int getValidationModeForResource(Resource resource) {
         return VALIDATION_XSD;
     }
+
     /**
      * 返回是否开启XML命名空间
+     * @return true则开启， false则不开启
      */
     public boolean isNamespaceAware() {
         return this.namespaceAware;

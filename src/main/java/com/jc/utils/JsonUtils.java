@@ -65,9 +65,9 @@ public class JsonUtils {
 
 
     /**
-     * 将string转化为序列化的json字符串
-     * @param text
-     * @return
+     * 将string转化为序列化的json对象
+     * @param text 字符串
+     * @return 返回json对象
      */
     public static Object textToJson(String text) {
         Object objectJson  = JSON.parse(text);
@@ -76,8 +76,8 @@ public class JsonUtils {
 
     /**
      * json字符串转化为map
-     * @param s
-     * @return
+     * @param s json字符串
+     * @return 返回map集合
      */
     public static Map stringToCollect(String s) {
         Map m = JSONObject.parseObject(s);
@@ -86,8 +86,8 @@ public class JsonUtils {
 
     /**
      * 将map转化为string
-     * @param m
-     * @return
+     * @param m map集合
+     * @return 返回json字符
      */
     public static String collectToString(Map m) {
         String s = JSONObject.toJSONString(m);

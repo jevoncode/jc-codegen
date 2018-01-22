@@ -7,8 +7,8 @@ public class CamelCaseUtils {
     /**
      * 将蛇形命名法转为驼峰命名法
      * 注意：首字母大写的
-     * @param snake_case
-     * @return
+     * @param snake_case 蛇形命名
+     * @return 返回驼峰命名
      */
     public static String parseSnakeCase(String snake_case){
         if (snake_case == null) {
@@ -35,8 +35,8 @@ public class CamelCaseUtils {
     /**
      * 将蛇形命名法转为驼峰命名法
      * 注意：首字母小写的
-     * @param snake_case
-     * @return
+     * @param snake_case 蛇形命名
+     * @return 返回驼峰命名
      */
     public static String parseSnakeCase2LowerCase(String snake_case){
         if (snake_case == null) {

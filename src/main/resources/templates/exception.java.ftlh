@@ -6,7 +6,7 @@ package ${entityFile.groupId}.${entityFile.artifactId}.exception;
 * @description ${entityFile.description}
 </#if>
 * @author ${entityFile.author}
-* @date ${entityFile.date}
+* @since ${entityFile.date}
 */
 public class ${entityFile.classSimpleName}Exception extends  RuntimeException{
 

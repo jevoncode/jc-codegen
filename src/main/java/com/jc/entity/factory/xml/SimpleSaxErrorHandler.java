@@ -13,6 +13,7 @@ public class SimpleSaxErrorHandler implements ErrorHandler {
     /**
      * Create a new SimpleSaxErrorHandler for the given
      * Commons Logging logger instance.
+     * @param logger 指定输出器
      */
     public SimpleSaxErrorHandler(Logger logger) {
         this.logger = logger;
