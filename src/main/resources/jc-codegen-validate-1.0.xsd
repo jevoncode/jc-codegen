@@ -47,7 +47,7 @@
             <xsd:complexContent>
                 <xsd:extension base="identifiedType">
                     <xsd:sequence>
-                        <xsd:element ref="artifact"/>
+                        <xsd:element ref="artifact"  minOccurs="0" maxOccurs="unbounded"/>
                     </xsd:sequence>
                     <xsd:attributeGroup ref="groupAttributes"/>
                 </xsd:extension>
@@ -216,7 +216,7 @@
                     ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="overwrite" type="xsd:string">
+        <xsd:attribute name="overwrite" type="xsd:boolean">
             <xsd:annotation>
                 <xsd:documentation><![CDATA[
 	是否覆盖代码
